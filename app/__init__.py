@@ -1,15 +1,10 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-from flask_moment import Moment
-from datetime import datetime
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_moment import Moment
 from config import config
-from .main import main as main_blueprint
+from flask import Blueprint
 
 bootstrap = Bootstrap()
 mail = Mail()
@@ -30,6 +25,7 @@ def create_app(config_name):
 	# 附加路由和自定义的错误页面
 
 	# 注册蓝本
+	from .main import main as main_blueprint
 	app.register_blueprint(main_blueprint)
 
 	# 返回app
