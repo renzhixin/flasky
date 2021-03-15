@@ -18,9 +18,18 @@
             <a class="navbar-brand" href="/">Flask</a>
         </div>
         <div class="navbar-collapse collapse">
+            <!-- home按钮 -->
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
             </ul>
+            <!-- 登录按钮 -->
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('auth.logout') }}">登出</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('auth.login') }}">登入</a></li>
+                {% endif %}
+             </ul>
         </div>
     </div>
 </div>
