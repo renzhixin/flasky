@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, session, redirect, url_for, flash
+from flask import Flask, render_template, request, session, redirect, url_for, flash, current_app
 from . import main
 from .forms import NameForm
 from .. import db
@@ -8,6 +8,13 @@ from ..models import User
 
 @main.route('/', methods=['get', 'post'])
 def index():
+    print(current_app.config['MAIL_SERVER'])
+    print(current_app.config['MAIL_PORT'])
+    print(current_app.config['MAIL_USERNAME'])
+    print(current_app.config['MAIL_PASSWORD'])
+    print(current_app.config['SECRET_KEY'])
+
+
     form = NameForm()
     if form.validate_on_submit():
         old_name = session.get('name')

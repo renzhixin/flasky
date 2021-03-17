@@ -1,0 +1,4 @@
+用户 {{ user.username }}  ：
+    欢迎来到Flasky。
+    请点击下方链接确认您的账号
+    {{ url_for('auth.confirm', token=token, external=True) }}

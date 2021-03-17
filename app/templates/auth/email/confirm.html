@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Flasky - Login{% endblock %}
+{% block page_content %}
+<div class="page-header">
+<h1>You have not confirmed your account yet.</h1>
+</div>
+<p>
+Before you can access this site you need to confirm your account . Check your inbox , you should have received an email with a confirmation link.
+</p>
+Need another confirmation email? 
+<a href = "{{url_for('auth.confirm',token=token, external=True)}}">Click here to send again</a>  <!--#注意这里的写法，很容易写错的-->
+{% endblock %}
